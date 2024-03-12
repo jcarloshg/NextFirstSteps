@@ -1,16 +1,20 @@
-import { Pokemon } from "@/pokemons";
-import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Pokemon, PokemonsResponse, SimplePokemon } from "@/pokemons";
+import { Metadata } from "next";
 
 export interface PokemonPageProps {
-    params: { id: string };
+    params: { name: string };
     searchParams: {};
 }
 
-export const generateStaticParams = () => {
-    const static151Pokemons = Array.from({ length: 151 }).map((v, i) => `${i + 1}`);
-    return static151Pokemons.map(id => ({ id: id }));
+export const generateStaticParams = async () => {
+
+    const urlFormed = `https://pokeapi.co/api/v2/pokemon?limit=151`;
+    const result: PokemonsResponse = await fetch(urlFormed).then(res => res.json());
+    const pokemonsName: string[] = result.results.map((pokemon) => pokemon.name);
+    return pokemonsName.map(pokemonName => ({ name: pokemonName }));
+
 }
 
 
@@ -26,7 +30,7 @@ export async function generateMetadata({ params }: PokemonPageProps): Promise<Me
 
     try {
 
-        const { id, name } = await getPokemon(params.id);
+        const { id, name } = await getPokemon(params.name);
 
         return {
             title: `#${id} - ${name}`,
@@ -41,12 +45,12 @@ export async function generateMetadata({ params }: PokemonPageProps): Promise<Me
     }
 }
 
-const getPokemon = async (id: string): Promise<Pokemon> => {
+const getPokemon = async (name: string): Promise<Pokemon> => {
 
     try {
         const pokemon = await
             fetch(
-                `https://pokeapi.co/api/v2/pokemon/${id}`,
+                `https://pokeapi.co/api/v2/pokemon/${name}`,
                 {
                     // cache: 'force-cache', //
                     next: { revalidate: 60 * 60 }
@@ -66,7 +70,7 @@ const getPokemon = async (id: string): Promise<Pokemon> => {
 
 export default async function PokemonPage({ params }: PokemonPageProps) {
 
-    const pokemon = await getPokemon(params.id);
+    const pokemon = await getPokemon(params.name);
 
 
     return (
