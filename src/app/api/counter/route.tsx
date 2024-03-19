@@ -4,7 +4,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
         method: 'GET',
-        counter: 100001,
+        counter: 10,
     });
 
 }
