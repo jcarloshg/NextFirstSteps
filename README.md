@@ -1,18 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## About the project
+- This project has been built with [Next.js](https://nextjs.org/).
+- It has calls to [PokemonsApi](https://pokeapi.co/) using [fetch](https://nextjs.org/docs/app/api-reference/functions/fetch).
+- This porject uses [ReduxToolkit](https://redux-toolkit.js.org/usage/nextjs).
+- This project uses [App router](https://nextjs.org/docs/app/building-your-application/routing).
 
-First, run the development server:
 
+## How to run project
 ```bash
+
+# install dependencies
+npm i
+
+
+# run project local
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+
+# build project
+npm run build
+
+
+# run project
+npm run start
+
+
 ```
+
+## Preview
+
+### Screen shoots
+![Model](https://github.com/jcarloshg/NextFirstSteps/blob/main/multimedia_evidence/Captura%20desde%202024-03-19%2013-40-47.png?raw=true)
+![Model](https://github.com/jcarloshg/NextFirstSteps/blob/main/multimedia_evidence/Captura%20desde%202024-03-19%2013-40-51.png?raw=true)
+![Model](https://github.com/jcarloshg/NextFirstSteps/blob/main/multimedia_evidence/Captura%20desde%202024-03-19%2013-44-30.png?raw=true)
+![Model](https://github.com/jcarloshg/NextFirstSteps/blob/main/multimedia_evidence/Captura%20desde%202024-03-19%2013-44-34.png?raw=true)
+
+
+## Videos
+![Model](https://github.com/jcarloshg/NextFirstSteps/blob/main/multimedia_evidence/Grabaci%C3%B3n%20de%20pantalla%20desde%2019-03-24%2013%3A40%3A56.webm)
+
+## More information
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
